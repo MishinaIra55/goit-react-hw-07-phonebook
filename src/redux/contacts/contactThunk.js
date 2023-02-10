@@ -15,3 +15,30 @@ export const getContactsThunk = createAsyncThunk(
   }
 }
 );
+
+
+//добавление контакта
+export const addContact = createAsyncThunk(
+  'contacts/addContact',
+  async (text, thunkAPI) => {
+    try {
+      const response = await axios.post('/contacts', {text});
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+//удаление контакта
+export const deleteContact = createAsyncThunk(
+  'contacts/deleteContact',
+  async (contactId, thunkAPI) => {
+    try {
+      const response = await axios.delete(`/contacts/${contactId}`);
+      return response.data;
+    }catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);

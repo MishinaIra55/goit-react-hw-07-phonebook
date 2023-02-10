@@ -42,7 +42,7 @@ const contactsSlice = createSlice({
     [getContactsThunk.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.items = action.payload;
+      state.items.push(action.payload);
     },
     [getContactsThunk.rejected](state, action) {
       state.isLoading = false;
