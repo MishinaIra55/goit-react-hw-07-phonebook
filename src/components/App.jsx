@@ -4,7 +4,7 @@ import { ContactFilter } from './ContactFilter/ContactFilter';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchContacts } from '../redux/contacts/contactThunk';
-import { getError, getIsLoading } from '../redux/contacts/contactsselectors';
+ import { getError, getIsLoading } from '../redux/contacts/contactsselectors';
 
 
 export const App = () => {
@@ -21,8 +21,9 @@ export const App = () => {
     <>
       <h1>Phonebook</h1>
       <ContactForm/>
-      <h2>Contacts</h2>
       {isLoading && !error && <b>Request in progress...</b>}
+      <h2>Contacts</h2>
+
       <ContactFilter/>
       <ContactList />
     </>
