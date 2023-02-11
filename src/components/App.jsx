@@ -3,7 +3,7 @@ import {ContactList} from './ContactList/ContatctList';
 import { ContactFilter } from './ContactFilter/ContactFilter';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { getContactsThunk } from '../redux/contacts/contactThunk';
+import { fetchContacts } from '../redux/contacts/contactThunk';
 import { getError, getIsLoading } from '../redux/contacts/contactsselectors';
 
 
@@ -14,7 +14,7 @@ export const App = () => {
 
 
   useEffect(() => {
-    dispatch(getContactsThunk());
+    dispatch(fetchContacts());
   }, [dispatch]);
 
   return (
